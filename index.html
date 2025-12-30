@@ -5,7 +5,7 @@
   <title>Aditi Mishra</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 1.5rem; line-height: 1.5; font-size: 18px; }
+    body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 1.5rem; line-height: 1.5; font-size: 18px; background-color: #000000; color: #ffffff; }
     header { margin-bottom: 1.5rem; }
     nav a { margin-right: 1rem; text-decoration: none; color: #005; font-size: 1.2rem; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
@@ -20,12 +20,12 @@
       body { padding: 1rem; }
     }
     button { padding: 0.5rem 1rem; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer; font-size: 1rem; }
-    .dark body { background-color: #000000; color: #ffffff; }
-    .dark h1, .dark h3, .dark h4 { color: #ffffff; }
-    .dark .subtitle { color: #ffffff; }
-    .dark nav a { color: #ffffff; }
-    .dark nav a:hover { color: #ffffff; }
-    .dark button { background-color: #333; color: #fff; border: 1px solid #555; }
+    .light body { background-color: #ffffff; color: #000000; }
+    .light h1, .light h3, .light h4 { color: #000000; }
+    .light .subtitle { color: #555; }
+    .light nav a { color: #005; }
+    .light nav a:hover { color: #005; text-decoration: underline; }
+    .light button { background-color: #f0f0f0; color: #000; border: 1px solid #ccc; }
 
   </style>
 </head>
@@ -90,19 +90,23 @@
   const themeToggle = document.getElementById('theme-toggle');
 
   // Check for saved theme preference
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark');
-    themeToggle.textContent = 'Light Mode';
-  } else {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light');
     themeToggle.textContent = 'Dark Mode';
+  } else {
+    themeToggle.textContent = 'Light Mode';
+    if (!savedTheme) {
+      localStorage.setItem('theme', 'dark');
+    }
   }
 
   themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
+    document.body.classList.toggle('light');
     // Save the current theme
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    const isLight = document.body.classList.contains('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    themeToggle.textContent = isLight ? 'Dark Mode' : 'Light Mode';
   });
 </script>
 
