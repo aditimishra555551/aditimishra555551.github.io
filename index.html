@@ -13,7 +13,7 @@
     .subtitle { margin-top: 0; color: #555; }
     .columns { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; }
     .col { flex: 1 1 220px; }
-    img.portrait { max-width: 180px; height: auto; border-radius: 4px; margin-bottom: 0.5rem; }
+    img.portrait { max-width: 180px; height: auto; border-radius: 4px; }
     h3 { margin-bottom: 0.4rem; }
     ul { margin-top: 0.4rem; }
     @media (max-width: 600px) {
@@ -32,8 +32,15 @@
     <a href="research.html">Research Projects</a>
     <a href="personal.html">Personal</a>
   </nav>
-  <div style="float: right;">
-    <img class="portrait" src="images/self_pic.jpg" alt="Aditi Mishra">
+</header>
+
+<main>
+  <div class="columns">
+    <!-- Picture column -->
+    <section class="col">
+      <img class="portrait" src="images/self_pic.jpg" alt="Aditi Mishra">
+    </section>
+
     <!-- Address / contact column -->
     <section class="col">
       <h3>Contact</h3>
@@ -50,13 +57,10 @@
       </p>
     </section>
   </div>
-</header>
 
-<main>
-  <div class="columns">
-    <!-- About / research interests column -->
-    <section class="col">
-      <h3>About / Research Interests</h3>
+  <!-- About / research interests column -->
+  <section class="col">
+    <h3>About / Research Interests</h3>
       <p>
         Write 2–4 sentences about your broad research interests and current focus.
         You can mention key areas (e.g., automata theory, formal verification, blockchain protocols).
