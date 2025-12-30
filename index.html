@@ -106,7 +106,7 @@
   const savedTheme = localStorage.getItem('theme');
   console.log('savedTheme:', savedTheme);
   if (savedTheme === 'dark') {
-    document.body.classList.add('dark');
+    document.documentElement.classList.add('dark');
     themeToggle.textContent = 'Light Mode';
   } else {
     themeToggle.textContent = 'Dark Mode';
@@ -114,9 +114,9 @@
 
   themeToggle.addEventListener('click', () => {
     console.log('Button clicked');
-    document.body.classList.toggle('dark');
+    document.documentElement.classList.toggle('dark');
     // Save the current theme
-    const isDark = document.body.classList.contains('dark');
+    const isDark = document.documentElement.classList.contains('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
     console.log('Is dark:', isDark);
