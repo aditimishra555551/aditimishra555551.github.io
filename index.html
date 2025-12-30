@@ -86,8 +86,15 @@
 </main>
 
 <script>
+  // Check for saved theme preference
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+  }
+
   document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('dark');
+    // Save the current theme
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
   });
 </script>
 
