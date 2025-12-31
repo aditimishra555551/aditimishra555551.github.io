@@ -50,8 +50,10 @@
 <script>
   // Check for saved theme preference
   const savedTheme = localStorage.getItem('theme');
+  alert('savedTheme: ' + savedTheme);
   if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark');
+    alert('Added dark class');
   }
 </script>
 
