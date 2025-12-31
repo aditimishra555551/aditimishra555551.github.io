@@ -24,7 +24,8 @@
       line-height: 1.5;
       font-size: 24px;
       color: #333;
-      background-color: #ffffff;      /* keeps content area white */
+      /* translucent white (80% opaque) */
+      background-color: rgba(255, 255, 255, 0.8);
       box-sizing: border-box;
       min-height: 100vh;
     }
@@ -53,7 +54,7 @@
       font-size: 1rem;
     }
 
-    /* Dark mode: make background dark as well */
+    /* Dark mode: semi-transparent dark content background, dark page bg */
     .dark html {
       background-color: #000000 !important;
       background-image: none;
@@ -61,7 +62,8 @@
 
     .dark body {
       color: #cccccc;
-      background-color: #282a36 !important;
+      /* translucent dark (85% opaque) */
+      background-color: rgba(40, 42, 54, 0.85) !important;
     }
 
     .dark h1, .dark h2, .dark h3, .dark h4 { color: #ffffff; }
