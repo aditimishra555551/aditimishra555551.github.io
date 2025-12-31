@@ -31,7 +31,7 @@
     /* Top header with image left, name/contact right */
     .top-header {
       display: flex;
-      gap: 3rem; /* Increased gap between image and text */
+      gap: 3rem;
       align-items: flex-start;
       margin-bottom: 2rem;
     }
@@ -41,8 +41,8 @@
     }
 
     img.portrait { 
-      width: 220px;  /* Increased width */
-      height: 260px; /* Increased height to match right-side content */
+      width: 220px;
+      height: 260px;
       object-fit: cover;
       border-radius: 8px; 
       display: block;
@@ -53,16 +53,17 @@
     }
 
     .name-contact h1 {
-      margin: 0 0 0.2rem 0;
+      margin: 0 0 1rem 0;
       font-size: 2.5rem;
       color: #000;
     }
 
     .pronouns {
-      margin: 0 0 1rem 0;
       color: #666;
       font-size: 1rem;
       font-style: italic;
+      display: block;
+      margin-bottom: 1rem;
     }
 
     nav { 
@@ -134,8 +135,7 @@
 
   <!-- Name, pronouns, and contact right -->
   <div class="name-contact">
-    <h1>Aditi Mishra</h1>
-    <p class="pronouns">(she / her / hers)</p>
+    <h1>Aditi Mishra <span class="pronouns">(she / her / hers)</span></h1>
     <p>
       Masters Student<br>
       Theoretical Computer Science<br>
