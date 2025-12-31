@@ -5,8 +5,31 @@
   <title>Aditi Mishra – Research Projects</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 3rem; line-height: 1.5; font-size: 24px; color: #333; background-color: #ffffff; }
-    html { background-color: #ffffff; }
+    /* Page background (sides) */
+    html {
+      height: 100%;
+      background-color: #ffffff;
+      background-image: url("images/forest.jpg");
+      background-repeat: repeat;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    /* Centered content area */
+    body {
+      font-family: sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem;
+      line-height: 1.5;
+      font-size: 24px;
+      color: #333;
+      /* translucent white (80% opaque) */
+      background-color: rgba(255, 255, 255, 0.8);
+      box-sizing: border-box;
+      min-height: 100vh;
+    }
+
     header { margin-bottom: 1.5rem; }
     nav a { margin-right: 1rem; text-decoration: none; color: #005; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
@@ -18,12 +41,31 @@
     h3 { margin-bottom: 0.4rem; font-size: 1.5rem; color: #000; }
     ul { margin-top: 0.4rem; }
     h4 { color: #000; }
+
     @media (max-width: 600px) {
       body { padding: 1rem; }
     }
-    button { padding: 0.5rem 1rem; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer; font-size: 1rem; }
-    .dark html { background-color: #000000 !important; }
-    .dark body { color: #cccccc; background-color: #282a36 !important; }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Dark mode: semi-transparent dark content background, dark page bg */
+    .dark html {
+      background-color: #000000 !important;
+      background-image: none;
+    }
+
+    .dark body {
+      color: #cccccc;
+      /* translucent dark (85% opaque) */
+      background-color: rgba(40, 42, 54, 0.85) !important;
+    }
+
     .dark h1, .dark h2, .dark h3, .dark h4 { color: #ffffff; }
     .dark .subtitle { color: #cccccc; }
     .dark nav a { color: #ffff00; }
@@ -35,10 +77,10 @@
 <header>
   <h1>Aditi Mishra</h1>
   <nav>
-    <a href="index.html">Home   </a>
-    <a href="cv.html">CV    </a>
-    <a href="research.html">Research Projects    </a>
-    <a href="personal.html">Personal    </a>
+    <a href="index.html">Home</a>
+    <a href="cv.html">CV</a>
+    <a href="research.html">Research Projects</a>
+    <a href="personal.html">Personal</a>
   </nav>
 </header>
 
