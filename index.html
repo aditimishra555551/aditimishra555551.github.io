@@ -8,8 +8,7 @@
     body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 1.5rem; line-height: 1.5; font-size: 18px; background-color: #ffffff; color: #333; }
     html { background-color: #ffffff; }
     header { margin-bottom: 1.5rem; }
-    nav a { margin-right: 1rem; text-decoration: none; color: #005; font-size: 1.2rem; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
     h1 { margin-bottom: 0.2rem; font-size: 2.5rem; color: #000; }
     .subtitle { margin-top: 0; color: #555; }
     .columns { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; justify-content: flex-end; }
@@ -47,12 +46,14 @@
   <h1>Aditi Mishra</h1>
   <p class="subtitle">A BSc Hons graduate from Chennai Mathematical Institute</p>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="cv.html">CV</a>
-    <a href="research.html">Research Projects</a>
-    <a href="personal.html">Personal</a>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="cv.html">CV</a>
+      <a href="research.html">Research Projects</a>
+      <a href="personal.html">Personal</a>
+    </div>
+    <button id="theme-toggle">Dark Mode</button>
   </nav>
-  <button id="theme-toggle" style="margin-left: 1rem;">Toggle Dark Mode</button>
   <div style="float: right;">
     <img class="portrait" src="images/self_pic.jpg" alt="Aditi Mishra">
     <!-- Address / contact column -->
