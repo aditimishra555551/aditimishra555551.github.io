@@ -12,8 +12,6 @@
       background-image: url("images/forest.jpg");
       background-repeat: repeat;
       background-size: cover;
-      /* Removed fixed - causes Android issues */
-      /* background-attachment: fixed; */
     }
 
     /* Centered content area */
@@ -25,32 +23,55 @@
       line-height: 1.5;
       font-size: 24px;
       color: #333;
-      /* translucent white (80% opaque) */
       background-color: rgba(255, 255, 255, 0.8);
       box-sizing: border-box;
       min-height: 100vh;
     }
 
-    header { margin-bottom: 1.5rem; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
+    header { margin-bottom: 2rem; }
+    nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
     nav a { margin-right: 1rem; text-decoration: none; color: #005; font-weight: bold; }
     nav a:hover { text-decoration: underline; }
     h1 { margin-bottom: 0.2rem; font-size: 2.5rem; color: #000; }
-    .subtitle { margin-top: 0; color: #555; }
-    .columns { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem; justify-content: flex-end; }
-    .col { flex: 1 1 220px; }
-    img.portrait { max-width: 180px; height: auto; border-radius: 4px; margin-bottom: 0.5rem; }
-    h3 { margin-bottom: 0.4rem; font-size: 1.5rem; color: #000; }
-    ul { margin-top: 0.4rem; }
-    h4 { color: #000; }
+    .subtitle { margin-top: 0; color: #555; font-size: 1.1rem; }
 
-    @media (max-width: 600px) {
-      body { 
-        padding: 1rem; 
-        font-size: 20px; /* smaller font on mobile */
-      }
+    /* Main content layout like dmelis.github.io */
+    .main-content {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .main-column {
+      flex: 1;
+    }
+
+    .sidebar {
+      flex-shrink: 0;
+      width: 220px;
+    }
+
+    img.portrait { 
+      width: 180px; 
+      height: 180px; 
+      object-fit: cover;
+      border-radius: 8px; 
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .col { margin-bottom: 1.5rem; }
+    h3 { margin-bottom: 0.8rem; font-size: 1.5rem; color: #000; }
+    ul { margin-top: 0; padding-left: 1.2rem; }
+    h4 { color: #000; margin-bottom: 0.5rem; }
+
+    @media (max-width: 768px) {
+      body { padding: 1rem; font-size: 20px; }
       h1 { font-size: 2rem; }
       nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .main-content { flex-direction: column; }
+      .sidebar { width: auto; }
+      img.portrait { width: 140px; height: 140px; }
     }
 
     button {
@@ -61,7 +82,7 @@
       font-size: 1rem;
     }
 
-    /* Dark mode: semi-transparent dark content background, dark page bg */
+    /* Dark mode */
     .dark html {
       background-color: #000000 !important;
       background-image: none;
@@ -69,7 +90,6 @@
 
     .dark body {
       color: #cccccc;
-      /* translucent dark (85% opaque) */
       background-color: rgba(40, 42, 54, 0.85) !important;
     }
 
@@ -93,27 +113,11 @@
     </div>
     <button id="theme-toggle">Dark Mode</button>
   </nav>
-  <div style="float: right;">
-    <img class="portrait" src="images/self_pic.jpg" alt="Aditi Mishra">
-    <!-- Address / contact column -->
-    <section class="col">
-      <h3>Contact</h3>
-      <p>
-        Masters Student<br>
-        Theoretical Computer Science<br>
-        Chennai Mathematical Institute<br>
-        Chennai, Tamil Nadu, India
-      </p>
-      <p>
-        <strong>Email:</strong> aditimishra555551 [at] gmail [dot] com<br>
-      </p>
-    </section>
-  </div>
 </header>
 
-<main>
-  <div class="columns">
-    <!-- About / research interests column -->
+<div class="main-content">
+  <!-- Main content column -->
+  <div class="main-column">
     <section class="col">
       <h3>About / Research Interests</h3>
       <p>
@@ -134,15 +138,31 @@
       </ul>
     </section>
   </div>
-</main>
+
+  <!-- Sidebar with portrait + contact (like dmelis.github.io) -->
+  <div class="sidebar">
+    <img class="portrait" src="images/self_pic.jpg" alt="Aditi Mishra">
+    <section class="col">
+      <h3>Contact</h3>
+      <p>
+        Masters Student<br>
+        Theoretical Computer Science<br>
+        Chennai Mathematical Institute<br>
+        Chennai, Tamil Nadu, India
+      </p>
+      <p>
+        <strong>Email:</strong><br>
+        aditimishra555551 [at] gmail [dot] com
+      </p>
+    </section>
+  </div>
+</div>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
-  console.log('themeToggle:', themeToggle);
 
   // Check for saved theme preference
   const savedTheme = localStorage.getItem('theme');
-  console.log('savedTheme:', savedTheme);
   if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark');
     themeToggle.textContent = 'Light Mode';
@@ -151,12 +171,10 @@
   }
 
   themeToggle.addEventListener('click', () => {
-    console.log('Button clicked');
     document.documentElement.classList.toggle('dark');
     const isDark = document.documentElement.classList.contains('dark');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     themeToggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    console.log('Is dark:', isDark);
   });
 </script>
 
